@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Copy, Check, Zap, ArrowRight, LayoutDashboard } from "lucide-react";
 import Sumita from "../components/Sumita";
 import { useResponsive } from "../hooks/useResponsive";
+import { wrapAPI } from "../lib/api";
 
 const SUMITA_STATES = {
   idle: {
@@ -109,21 +110,10 @@ export default function Wrap() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("http://localhost:3001/wrap", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          endpointUrl: form.endpointUrl,
-          pricePerCall: form.pricePerCall,
-        }),
+      const data = await wrapAPI({
+        endpointUrl: form.endpointUrl,
+        pricePerCall: form.pricePerCall,
       });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Something went wrong");
-      }
-
       setResult(data);
       setStatus("success");
     } catch (err) {

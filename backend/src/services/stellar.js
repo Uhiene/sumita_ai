@@ -1,7 +1,7 @@
 import { Keypair, Horizon, Asset } from "@stellar/stellar-sdk";
 
-const HORIZON_URL = "https://horizon-testnet.stellar.org";
-const FRIENDBOT_URL = "https://friendbot.stellar.org";
+const HORIZON_URL = process.env.STELLAR_HORIZON_URL || "https://horizon-testnet.stellar.org";
+const FRIENDBOT_URL = process.env.STELLAR_FRIENDBOT_URL || "https://friendbot.stellar.org";
 
 // USDC issued by Circle on Stellar testnet
 const USDC_ISSUER = "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5";

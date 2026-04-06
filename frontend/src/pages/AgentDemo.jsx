@@ -14,8 +14,8 @@ import {
 import Sumita from "../components/Sumita";
 import TransactionFeed from "../components/TransactionFeed";
 import { useResponsive } from "../hooks/useResponsive";
+import { getAgentWallet, runAgentDemo } from "../lib/api";
 
-const BASE = "http://localhost:3001";
 const STEP_DELAY_MS = 800;
 
 // The 5 narrative steps shown during a demo run
@@ -204,12 +204,8 @@ export default function AgentDemo() {
 
   // Fetch agent wallet on mount
   useEffect(() => {
-    fetch(`${BASE}/api/demo/agent`)
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.error) throw new Error(data.error);
-        setAgent(data);
-      })
+    getAgentWallet()
+      .then(setAgent)
       .catch((err) => setAgentError(err.message));
   }, []);
 
@@ -225,11 +221,7 @@ export default function AgentDemo() {
     setVisibleSteps([0]);
 
     // Kick off the backend call right away — steps are cosmetic animation
-    const fetchPromise = fetch(`${BASE}/api/demo/run`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ apiId: apiId.trim(), prompt: "AgentDemo UI call" }),
-    }).then((r) => r.json());
+    const fetchPromise = runAgentDemo(apiId.trim(), "AgentDemo UI call");
 
     // Reveal steps 2–4 on a timer while the request is in flight
     for (let i = 1; i <= 3; i++) {

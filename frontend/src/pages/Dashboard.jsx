@@ -6,8 +6,8 @@ import Sumita from "../components/Sumita";
 import EarningsChart from "../components/EarningsChart";
 import TransactionFeed from "../components/TransactionFeed";
 import { useResponsive } from "../hooks/useResponsive";
+import { getEarnings, listWrappedAPIs } from "../lib/api";
 
-const BASE = "http://localhost:3001";
 const POLL_MS = 5000;
 
 const fadeUp = {
@@ -96,19 +96,10 @@ export default function Dashboard() {
 
   const fetchStats = useCallback(async () => {
     try {
-      const [earningsRes, wrapRes] = await Promise.all([
-        fetch(`${BASE}/earnings`),
-        fetch(`${BASE}/wrap/list`),
-      ]);
-
-      if (!earningsRes.ok) throw new Error("Failed to fetch earnings");
-      if (!wrapRes.ok) throw new Error("Failed to fetch wrapped APIs");
-
       const [earningsData, wrapData] = await Promise.all([
-        earningsRes.json(),
-        wrapRes.json(),
+        getEarnings(),
+        listWrappedAPIs(),
       ]);
-
       setEarnings(earningsData);
       setWrapCount(wrapData.count);
       setError(null);

@@ -9,8 +9,7 @@ import {
   Tooltip,
 } from "recharts";
 import Sumita from "./Sumita";
-
-const BASE = "http://localhost:3001";
+import { getEarnings } from "../lib/api";
 
 // Formats a Unix ms timestamp to "HH:MM" for the X axis.
 function toHourLabel(ms) {
@@ -75,15 +74,9 @@ export default function EarningsChart({ apiId, pollMs = 10_000 }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const url = apiId
-    ? `${BASE}/earnings/${apiId}`
-    : `${BASE}/earnings`;
-
   async function fetchData() {
     try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-      const json = await res.json();
+      const json = await getEarnings(apiId);
       setChartData(bucketByHour(json.transactions ?? []));
       setError(null);
     } catch (err) {

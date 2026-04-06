@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, TrendingUp, Phone } from "lucide-react";
 import Sumita from "./Sumita";
-
-const BASE = "http://localhost:3001";
+import { getEarnings } from "../lib/api";
 
 // Returns a human-readable "time ago" string from a Unix ms timestamp.
 function timeAgo(ms) {
@@ -132,15 +131,9 @@ export default function TransactionFeed({ apiId }) {
   const seenIds = useRef(new Set());
   const newIds = useRef(new Set());
 
-  const url = apiId
-    ? `${BASE}/earnings/${apiId}`
-    : `${BASE}/earnings`;
-
   async function fetchData() {
     try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-      const json = await res.json();
+      const json = await getEarnings(apiId);
 
       // Detect which IDs are newly arrived since last fetch
       newIds.current = new Set();
