@@ -1,0 +1,48 @@
+# Claude / AI files
+CLAUDE.md
+claude.md
+
+# Node modules (frontend + backend)
+node_modules/
+**/node_modules/
+
+# Env files (VERY IMPORTANT)
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Mac files
+.DS_Store
+
+# Build folders
+dist/
+build/
+.next/
+out/
+
+# Cache
+.cache/
+.tmp/
+
+# Large files (prevent huge pushes)
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+*.mp4
+*.mov
+*.avi
+*.pdf
+*.sqlite
+*.db
+
+# Coverage / testing
+coverage/
