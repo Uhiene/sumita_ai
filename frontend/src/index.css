@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #FFF8F0;
+    color: #2D2D2D;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Global button defaults — all buttons get pointer and smooth transitions */
+  button {
+    cursor: pointer;
+    transition: background-color 0.18s ease, opacity 0.18s ease, transform 0.12s ease,
+      box-shadow 0.18s ease;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  /* Remove default focus outline and replace with a soft brand-purple ring */
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #C9B8FF;
+    outline-offset: 2px;
+  }
+
+  /* Inputs: consistent font and border on focus */
+  input, textarea, select {
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #C9B8FF;
+    box-shadow: 0 0 0 3px rgba(201, 184, 255, 0.2);
+    outline: none;
+  }
+
+  /* Smooth anchor transitions */
+  a {
+    transition: opacity 0.15s ease;
+  }
+
+  a:hover {
+    opacity: 0.85;
+  }
+
+  /* Scrollbar — soft and minimal */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #FFD6E0;
+    border-radius: 99px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #C9B8FF;
+  }
+}
