@@ -290,7 +290,7 @@ export default function Wrap() {
                     whileTap={{ scale: status === "loading" ? 1 : 0.97 }}
                     style={{
                       width: "100%",
-                      backgroundColor: status === "loading" ? "#E0D6FF" : "#C9B8FF",
+                      backgroundColor: status === "loading" ? "#9B84C8" : "#6B3FA0",
                       color: "#FFFFFF",
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 700,
@@ -304,7 +304,7 @@ export default function Wrap() {
                       justifyContent: "center",
                       gap: 8,
                       minHeight: 44,
-                      boxShadow: "0 4px 16px rgba(201,184,255,0.4)",
+                      boxShadow: "0 4px 16px rgba(107,63,160,0.35)",
                       transition: "background-color 0.2s",
                     }}
                   >
@@ -376,7 +376,7 @@ export default function Wrap() {
                     whileTap={{ scale: 0.97 }}
                     style={{
                       width: "100%",
-                      backgroundColor: "#C9B8FF",
+                      backgroundColor: "#6B3FA0",
                       color: "#FFFFFF",
                       fontFamily: "'Poppins', sans-serif",
                       fontWeight: 700,
@@ -389,7 +389,7 @@ export default function Wrap() {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: 8,
-                      boxShadow: "0 4px 16px rgba(201,184,255,0.4)",
+                      boxShadow: "0 4px 16px rgba(107,63,160,0.35)",
                     }}
                   >
                     <LayoutDashboard size={16} />

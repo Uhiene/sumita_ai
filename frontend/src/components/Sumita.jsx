@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import SpeechBubble from "./SpeechBubble";
 
-const SIZES = { sm: 80, md: 120, lg: 160, xl: 240 };
+const SIZES = { sm: 80, md: 120, lg: 160, xl: 240, hero: 360 };
 
 const POSE_IMAGES = {
   wave:      "/sumita/sumita-wave.png",
   point:     "/sumita/sumita-point.png",
   celebrate: "/sumita/sumita-celebrate.png",
   think:     "/sumita/sumita-think.png",
+  hero:      "/sumita/sumitaHero.png",
 };
 
 // Per-pose Framer Motion animate + transition config
@@ -27,6 +28,10 @@ const ANIMATIONS = {
   think: {
     animate: { rotate: [-4, 4, -4] },
     transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
+  },
+  hero: {
+    animate: { y: [0, -12, 0] },
+    transition: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
   },
 };
 

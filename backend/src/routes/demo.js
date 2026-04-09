@@ -26,6 +26,11 @@ router.post("/run", async (req, res) => {
     return res.status(400).json({ error: "apiId is required" });
   }
 
+  // Accept either a bare UUID or a full proxy URL (http://localhost:3001/proxy/<uuid>)
+  const resolvedId = apiId.includes("/proxy/")
+    ? apiId.split("/proxy/").pop().split("?")[0].trim()
+    : apiId.trim();
+
   // Lazy-initialise agent wallet on first call
   try {
     getAgentWallet();
@@ -34,7 +39,7 @@ router.post("/run", async (req, res) => {
   }
 
   try {
-    const result = await agentCallAPI(apiId, prompt ?? "Agent API call");
+    const result = await agentCallAPI(resolvedId, prompt ?? "Agent API call");
     return res.json({
       success: true,
       txHash: result.txHash,

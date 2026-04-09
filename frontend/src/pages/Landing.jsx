@@ -53,46 +53,11 @@ export default function Landing() {
         style={{
           maxWidth: 1100,
           margin: "0 auto",
-          padding: isMobile ? "40px 20px 48px" : "80px 32px 64px",
+          padding: isMobile ? "40px 20px 80px" : "80px 32px 120px",
           position: "relative",
-          overflow: "hidden",
         }}
       >
-        {/* Decorative blobs — purely background, behind all content */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            top: -80,
-            right: -100,
-            width: 420,
-            height: 420,
-            borderRadius: "50%",
-            backgroundColor: "#D6F0FF",
-            opacity: 0.55,
-            filter: "blur(72px)",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-        />
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            bottom: -60,
-            left: -80,
-            width: 340,
-            height: 340,
-            borderRadius: "50%",
-            backgroundColor: "#FFD6E0",
-            opacity: 0.45,
-            filter: "blur(64px)",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-        />
-
-        {/* Hero content — above blobs */}
+        {/* Hero content */}
         <div
           style={{
             position: "relative",
@@ -139,10 +104,10 @@ export default function Landing() {
             </p>
             <Link to="/wrap">
               <motion.button
-                whileHover={{ backgroundColor: "#B9A4F0", scale: 1.02 }}
+                whileHover={{ backgroundColor: "#5A3490", scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
                 style={{
-                  backgroundColor: "#C9B8FF",
+                  backgroundColor: "#6B3FA0",
                   color: "#FFFFFF",
                   fontFamily: "'Poppins', sans-serif",
                   fontWeight: 700,
@@ -151,7 +116,7 @@ export default function Landing() {
                   borderRadius: 16,
                   border: "none",
                   cursor: "pointer",
-                  boxShadow: "0 4px 20px rgba(201,184,255,0.45)",
+                  boxShadow: "0 4px 20px rgba(107,63,160,0.35)",
                   letterSpacing: "0.01em",
                   transition: "background-color 0.2s",
                 }}
@@ -168,7 +133,7 @@ export default function Landing() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
-            <Sumita pose="wave" size="xl" />
+            <Sumita pose="hero" size="hero" />
             <p
               style={{
                 fontFamily: "'Inter', sans-serif",

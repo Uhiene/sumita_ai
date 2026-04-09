@@ -85,7 +85,7 @@ No signup. No monthly fee. No chargebacks. Pure pay-per-call on Stellar.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/sumita-ai.git
+git clone https://github.com/Uhiene/sumita_ai
 cd sumita-ai
 ```
 
@@ -178,10 +178,6 @@ Sumita AI demonstrates how the x402 protocol and Stellar micropayments can creat
 
 ---
 
-## License
 
-MIT — see [LICENSE](LICENSE)
 
----
-
-*Built with love by the Sumita AI team.*
+*Built with love by Code Duchess*
