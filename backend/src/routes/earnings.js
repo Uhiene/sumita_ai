@@ -10,7 +10,7 @@ function setSseHeaders(res) {
     "Content-Type": "text/event-stream",
     "Cache-Control": "no-cache",
     "Connection": "keep-alive",
-    "Access-Control-Allow-Origin": "http://localhost:5173",
+    "Access-Control-Allow-Origin": process.env.FRONTEND_URL || "http://localhost:5173",
     "Access-Control-Allow-Headers": "Content-Type",
     "X-Accel-Buffering": "no", // disable nginx buffering if behind a proxy
   });

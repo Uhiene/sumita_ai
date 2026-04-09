@@ -48,7 +48,8 @@ router.post("/", async (req, res) => {
        VALUES (?, ?, ?, ?, ?, ?)`
     ).run(id, endpointUrl, String(price), publicKey, secretKey, now);
 
-    const wrappedEndpoint = `http://localhost:3001/proxy/${id}`;
+    const baseUrl = process.env.BACKEND_URL || `http://localhost:${process.env.PORT || 3001}`;
+    const wrappedEndpoint = `${baseUrl}/proxy/${id}`;
 
     console.log(`[wrap] ${endpointUrl} → ${wrappedEndpoint} at ${price} USDC/call`);
 

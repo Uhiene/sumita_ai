@@ -509,7 +509,7 @@ export default function AgentDemo() {
           >
             Live Transaction Feed
           </h2>
-          <TransactionFeed apiId={apiId.trim() || undefined} />
+          <TransactionFeed apiId={apiId.includes("/proxy/") ? apiId.split("/proxy/").pop().split("?")[0].trim() : apiId.trim() || undefined} />
         </div>
 
       </div>

@@ -25,7 +25,7 @@ import db from "../db/database.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const AGENT_FILE = join(__dirname, "../../agent.json");
-const PROXY_BASE = "http://localhost:3001/proxy";
+const PROXY_BASE = `http://localhost:${process.env.PORT || 3001}/proxy`;
 const NETWORK = "stellar-testnet";
 
 /**
