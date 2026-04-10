@@ -40,15 +40,23 @@ No signup. No monthly fee. No chargebacks. Pure pay-per-call on Stellar.
 
 ---
 
-## Demo
+## 🎬 Demo
 
-> **[Demo video link here]**
+![Demo GIF](frontend/public/demo_video/sumita.gif)
 
-### Screenshots
+### 🖼 Screenshots
 
-> **[Screenshots here]**
+#### Home Page
+![Home Screenshot](frontend/public/sumita/screenshots/home_screenshot.png)
 
+#### Dashboard
+![Dashboard Screenshot](frontend/public/sumita/screenshots/dashboard_screenshot.png)
 ---
+
+#### Wrap
+![Wrap Screenshot](frontend/public/sumita/screenshots/wrap_screenshot.png)
+---
+
 
 ## Tech Stack
 
