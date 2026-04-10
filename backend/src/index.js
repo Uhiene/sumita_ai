@@ -13,10 +13,14 @@ const PORT = process.env.PORT || 3001;
 app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:5173" }));
 app.use(express.json());
 
-app.use("/wrap", wrapRoutes);
-app.use("/proxy", proxyRoutes);
-app.use("/earnings", earningsRoutes);
-app.use("/api/demo", demoRoutes); // /api prefix per spec; other routes use no prefix
+app.use("/api/wrap", wrapRoutes);
+app.use("/api/proxy", proxyRoutes);
+app.use("/api/earnings", earningsRoutes);
+app.use("/api/demo", demoRoutes);
+
+app.use((req, res) => {
+  res.status(404).json({ error: "Route not found", path: req.path });
+});
 
 app.listen(PORT, () => {
   console.log(`Sumita AI backend running ⚡ http://localhost:${PORT}`);

@@ -52,7 +52,7 @@ router.get("/:id", async (req, res) => {
     return res.status(404).json({ error: "Wrapped API not found" });
   }
 
-  const wrappedEndpoint = `http://localhost:3001/proxy/${id}`;
+  const wrappedEndpoint = `${process.env.BACKEND_URL}/api/proxy/${id}`;
 
   // 2. Build the x402 PaymentRequired structure
   const paymentRequired = {

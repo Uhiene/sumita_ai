@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { Router } from "express";
 import { v4 as uuidv4 } from "uuid";
 import db from "../db/database.js";
@@ -48,8 +49,7 @@ router.post("/", async (req, res) => {
        VALUES (?, ?, ?, ?, ?, ?)`
     ).run(id, endpointUrl, String(price), publicKey, secretKey, now);
 
-    const baseUrl = process.env.BACKEND_URL || `http://localhost:${process.env.PORT || 3001}`;
-    const wrappedEndpoint = `${baseUrl}/proxy/${id}`;
+    const wrappedEndpoint = `${process.env.BACKEND_URL}/api/proxy/${id}`;
 
     console.log(`[wrap] ${endpointUrl} → ${wrappedEndpoint} at ${price} USDC/call`);
 

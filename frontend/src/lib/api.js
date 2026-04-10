@@ -1,7 +1,7 @@
 const BASE = import.meta.env.VITE_API_URL;
 
 export async function wrapAPI(data) {
-  const res = await fetch(`${BASE}/wrap`, {
+  const res = await fetch(`${BASE}/api/wrap`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -12,7 +12,7 @@ export async function wrapAPI(data) {
 }
 
 export async function getEarnings(apiId) {
-  const url = apiId ? `${BASE}/earnings/${apiId}` : `${BASE}/earnings`;
+  const url = apiId ? `${BASE}/api/earnings/${apiId}` : `${BASE}/api/earnings`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
   return res.json();
@@ -37,7 +37,7 @@ export async function getAgentWallet() {
 }
 
 export async function listWrappedAPIs() {
-  const res = await fetch(`${BASE}/wrap/list`);
+  const res = await fetch(`${BASE}/api/wrap/list`);
   if (!res.ok) throw new Error("Failed to fetch wrapped APIs");
   return res.json();
 }

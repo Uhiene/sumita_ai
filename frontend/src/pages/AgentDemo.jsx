@@ -221,7 +221,7 @@ export default function AgentDemo() {
     setVisibleSteps([0]);
 
     // Kick off the backend call right away — steps are cosmetic animation
-    const fetchPromise = runAgentDemo(apiId.trim(), "AgentDemo UI call");
+    const fetchPromise = runAgentDemo(resolvedId, "AgentDemo UI call");
 
     // Reveal steps 2–4 on a timer while the request is in flight
     for (let i = 1; i <= 3; i++) {
@@ -266,6 +266,10 @@ export default function AgentDemo() {
     minWidth: 0,
     boxSizing: "border-box",
   };
+
+  const resolvedId = apiId.includes("/proxy/")
+    ? apiId.split("/proxy/").pop().split("?")[0].trim()
+    : apiId.trim();
 
   const sumitaPose  = status === "done" ? "celebrate" : status === "running" ? "think" : "wave";
   const sumitaMsg =
@@ -509,7 +513,7 @@ export default function AgentDemo() {
           >
             Live Transaction Feed
           </h2>
-          <TransactionFeed apiId={apiId.includes("/proxy/") ? apiId.split("/proxy/").pop().split("?")[0].trim() : apiId.trim() || undefined} />
+          <TransactionFeed apiId={resolvedId || undefined} />
         </div>
 
       </div>
